@@ -172,12 +172,12 @@ export default class EventsPage extends Component {
                                         </Col>
                                     </FormGroup>
                                     <FormGroup row>
-                                        <Label for="email" sm={2}>
+                                        <Label for="link" sm={2}>
                                             Contact Info
                                         </Label>
                                         <Col sm={10}>
                                             <Input
-                                                type="email"
+                                                type="link"
                                                 value={this.state.contactInfoEmail}
                                                 name="contactInfoEmail"
                                                 placeholder="Email or URL for more info about the event"
