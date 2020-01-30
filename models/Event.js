@@ -8,12 +8,6 @@ const infoEventSchema = new Schema({
   description: {
     type: String, 
     required: true,
-    // validate: {
-    //   validator: function(text) {
-    //     return text.indexOf('Provide an address, time and place of the event') === 0;
-    // },
-    //   message: "Provide an address, time and place of the event"
-    // }
   },
   date: {
     type:Date,
