@@ -4,7 +4,8 @@ module.exports = {
 
     findAll: function (req, res) {
         db.Match
-            .find(req.query)
+            .find({})
+            .sort({ date:-1 })
             .then(dbMatch => res.json(dbMatch))
             .catch(err => res.status(422).json(err));
     },
