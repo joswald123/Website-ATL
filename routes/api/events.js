@@ -9,7 +9,7 @@ router.route("/")
 // api/events/:id
 router.route("/:id")
 
-// .get(eventController.findById)
+    .get(eventController.findById)
     .put(eventController.update)
     .delete(eventController.remove);
 

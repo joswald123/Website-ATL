@@ -9,7 +9,7 @@ router.route("/")
 // api/match/:id
 router.route("/:id")
 
-// .get(matchController.findById)
+    .get(matchController.findById)
     .put(matchController.update)
     .delete(matchController.remove);
 

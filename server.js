@@ -19,20 +19,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Add routes, both API and view
+// Routes, both API and view
 app.use(routes);
 
-// Connect to the Mongo DB
-
-// mongoose.connect( 
-//   process.env.MONGODB_URI || "mongodb://heroku_wh3fwpvg:AT&ppqs2@ds033067.mlab.com:33067/heroku_wh3fwpvg",
-//   {
-//     useNewUrlParser: true,
-//     useCreateIndex: true,
-//   }
-// );
-
-
+// Mongoose connection
 const URI = process.env.MONGODB_URI;
 mongoose.connect(URI, {
     useUnifiedTopology: true,
