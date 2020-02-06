@@ -37,9 +37,8 @@ const AnnouncementCard = ({
       ) : (
         header
       )}
-      <CardBody className="d-flex align-items-start bd-highlight mb-3 example-parent">
-        <Avatar size={avatarSize} src={avatar} circle={avatarForm} />
-        
+      <CardBody className="row d-flex">
+        <Avatar  className="col" size={avatarSize} src={avatar} circle={avatarForm} />
         <CardText className="text-justify m-3">{text}</CardText>
         
       </CardBody>
@@ -50,6 +49,7 @@ const AnnouncementCard = ({
           <Button  className="p-2" type="submit" href={moreInfo} color="secondary" {...badgeProps}/>
      
      </div>
+     
           
     </Card>
   );
