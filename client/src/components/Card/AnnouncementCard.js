@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from '../../utils/propTypes';
-import { Card, CardHeader, CardBody, CardText, Button } from 'reactstrap';
+import { Card, CardHeader, CardBody, CardText, Button, Badge, CardFooter } from 'reactstrap';
 import Avatar from '../../components/Avatar';
 import classNames from 'classnames';
-
-
+import Moment from 'react-moment';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const AnnouncementCard = ({
   color,
   header,
   avatar,
   avatarSize,
-  name,
+  avatarForm,
+  moreInfo,
   date,
   text,
   googleMapsLink,
   className,
   buttonProps,
+  badgeProps,
   deleteButtonProps,
   editButtonProps,
   
@@ -26,23 +28,29 @@ const AnnouncementCard = ({
   const bgColor = `bg-${color}`;
   const classes = classNames(bgColor, className);
   return (
+    
     <Card inverse className={classes} {...restProps} >
       {header && typeof header === 'string' ? (
-        <CardHeader className={bgColor}>{header}</CardHeader>
+        <CardHeader className={bgColor}>{header}
+          <h6 className="text-muted d-flex justify-content-end"><Moment format="D MMM YYYY" withTitle>{date}</Moment></h6>
+        </CardHeader>
       ) : (
         header
       )}
-      <CardBody className="d-flex flex-wrap flex-column align-items-center ">
-        <Avatar size={avatarSize} src={avatar} />
-        <CardText className="text-center">
-          <small className="text-muted">{date}</small>
-        </CardText>
-        <CardText className="text-center mt-3">{text}</CardText>
-          <strong className="d-block mb-3">{name}</strong>
+      <CardBody className="d-flex align-items-start bd-highlight mb-3 example-parent">
+        <Avatar size={avatarSize} src={avatar} circle={avatarForm} />
         
-        <Button type="submit" href={googleMapsLink} color="primary" {...buttonProps} />
+        <CardText className="text-justify m-3">{text}</CardText>
         
       </CardBody>
+     <div className="d-flex justify-content-between m-3">
+          <Button className="p-2" type="submit" href={googleMapsLink} color="success" >
+          <FaMapMarkerAlt/> Event Location
+          </Button> 
+          <Button  className="p-2" type="submit" href={moreInfo} color="secondary" {...badgeProps}/>
+     
+     </div>
+          
     </Card>
   );
 };

@@ -12,8 +12,8 @@ import {
 // import ReactPlayer from 'react-player';
 import DashboardImag from '../assets/img/sidebar/sidebar-14.jpg';
 import API from '../utils/API';
-import { format } from 'timeago.js'
 import { FaMapMarkerAlt } from 'react-icons/fa';
+
 
 
 
@@ -69,7 +69,7 @@ class DashboardPage extends Component {
 }
 
   render() {
-
+    
     return (
 
       <Page >
@@ -109,12 +109,6 @@ class DashboardPage extends Component {
               avatar2={match.logoTeamAway}
               subtitle2="Name team"
               googleMapsLink={match.googleMapsLink}
-              icon={<FaMapMarkerAlt/>}
-
-              buttonProps={{
-                children: 'Event Location',
-
-              }}
 
             />
           </Col>
@@ -165,14 +159,16 @@ class DashboardPage extends Component {
                     color="gradient-secondary"
                     header={event.title}
                     avatar={event.image}
-                    avatarSize={200}
+                    avatarSize={300}
+                    avatarForm={0}
                     text={event.description}
-                    date={format(event.date)}
-                    name={"More Info: " + event.contactInfoEmail}
+                    date={event.date}
+                    moreInfo={event.contactInfoEmail}
                     googleMapsLink={event.googlemapslinkplace}
+                  
 
-                    buttonProps={{
-                      children: 'Event Location',
+                    badgeProps={{
+                      children: 'More Info',
 
                     }}
                     

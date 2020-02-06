@@ -44,6 +44,14 @@ export default class EventsPage extends Component {
         
         API.addEvent(this.state)
         .then(res => {
+            this.setState({
+                title: "",
+                image: "",
+                description: "",
+                date: "",
+                contactInfoEmail: "",
+                googlemapslinkplace: "",
+            })
             this.getSavedEvents();
 
         })
@@ -193,7 +201,7 @@ export default class EventsPage extends Component {
                                         <Col sm={10}>
                                             <Input
                                                 type="link"
-                                                value={this.state.googlemapslinkplae}
+                                                value={this.state.googlemapslinkplace}
                                                 name="googlemapslinkplace"
                                                 placeholder="Google maps link of the event address"
                                                 onChange={this.handleInputChange}

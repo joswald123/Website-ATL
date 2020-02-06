@@ -19,14 +19,14 @@ import {
     CardFooter,
     CardTitle
 } from 'reactstrap';
-import "react-datepicker/dist/react-datepicker.css";
 import Avatar from '../components/Avatar';
-import { format } from 'timeago.js'
+import { format } from 'timeago.js';
+import Moment from 'react-moment';
 
 
 
 export default class MatchPage extends Component {
-    
+
     state = {
         matches: [],
         month: "",
@@ -46,6 +46,16 @@ export default class MatchPage extends Component {
 
         API.addMatch(this.state)
             .then(res => {
+                this.setState({
+                    month: "",
+                    location: "",
+                    date: "",
+                    time: "",
+                    logoTeamHome: "",
+                    logoTeamAway: "",
+                    googleMapsLink: "",
+                    
+                });
                 this.getSavedMatch();
 
             })
@@ -74,7 +84,6 @@ export default class MatchPage extends Component {
                     });
                     console.log(this.state.matches)
                 }
-
             })
             .catch(err => console.log(err));
     }
@@ -98,7 +107,8 @@ export default class MatchPage extends Component {
 
 
     render() {
-      
+        
+
         return (
             <Page>
                 <Row >
@@ -180,6 +190,7 @@ export default class MatchPage extends Component {
                                     </FormGroup>
 
                                     <FormGroup row>
+
                                         <Label for="date" sm={2}>
                                             Date
                                         </Label>
@@ -238,13 +249,14 @@ export default class MatchPage extends Component {
                             <Card >
                                 <div className="d-flex justify-content-between">
                                     <CardHeader tag="div">
-                                        <Typography className="mb-0">
+                                        <Typography className="mb-0 d-flex justify-content-between">
                                             <strong>{match.month}</strong>
+                                            <strong className="mr-1 mt-1" ><Moment format="D MMM YYYY" withTitle>{match.date}</Moment></strong>
                                         </Typography>
                                         <Typography className="mb-0 ml-1 text-muted small">{match.location}</Typography>
                                         <Typography className="mb-0 ml-1 text-muted small">{`local time: ${match.time}`}</Typography>
                                     </CardHeader>
-                                    <CardTitle className="mr-2 mt-2" >{format(match.date)}</CardTitle>
+                                    
                                 </div>
                                 <CardText tag="div" className="d-flex justify-content-between ml-5 mr-5">
 
@@ -256,27 +268,27 @@ export default class MatchPage extends Component {
 
                                 </CardText>
 
-                                <Button 
-                                    type="submit" 
+                                <Button
+                                    type="submit"
                                     color="light"
-                                    href={match.googleMapsLink} 
+                                    href={match.googleMapsLink}
                                     className="mt-3"
-                                    >
+                                >
                                     <FaMapMarkerAlt />   Google Maps
                                     </Button>
-                                
+
                                 <CardFooter className="d-flex flex-end">
-                                <Button 
-                                    type="delete"
-                                    color="danger" 
-                                    className="mr-1" 
-                                    onClick={() => this.handleDeleteButton(match._id)}
+                                    <Button
+                                        type="delete"
+                                        color="danger"
+                                        className="mr-1"
+                                        onClick={() => this.handleDeleteButton(match._id)}
                                     >
-                                    <MdDelete /> Delete
+                                        <MdDelete /> Delete
                                     </Button>
 
                                 </CardFooter>
-                                
+
 
                             </Card>
 

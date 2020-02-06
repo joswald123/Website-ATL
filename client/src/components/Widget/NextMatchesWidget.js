@@ -4,8 +4,8 @@ import { Button } from 'reactstrap';
 import { Card, CardText, CardTitle } from 'reactstrap';
 import Typography from '../Typography';
 import  Avatar  from '../Avatar';
-
-
+import Moment from 'react-moment';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 
 const NextMatchesWidget = ({
@@ -30,13 +30,14 @@ const NextMatchesWidget = ({
     <Card body {...restProps} >
       <div className="d-flex justify-content-between">
         <CardText tag="div">
-          <Typography className="mb-0">
+          <Typography className="d-flex justify-content-between mb-0">
             <strong>{title}</strong>
+            <CardTitle className={`text-${color}`}><Moment format="D MMM YYYY" withTitle>{date}</Moment></CardTitle>
           </Typography>
           <Typography className="mb-0 ml-2 text-muted small">{location}</Typography>
           <Typography className="mb-0 ml-2 text-muted small">{localtime}</Typography>
         </CardText>
-        <CardTitle className={`text-${color}`}>{date}</CardTitle>
+        
       </div>
       {/* <Progress value={value} color={color} style={{ height: '8px' }} /> */}
       <CardText tag="div" className="d-flex justify-content-between">
@@ -52,7 +53,9 @@ const NextMatchesWidget = ({
 
       </CardText>
 
-      <Button icon={icon} color="link" href={googleMapsLink} className="mt-3" {...buttonProps} /> 
+      <Button color="link" href={googleMapsLink} className="mt-3" >
+      <FaMapMarkerAlt/> Event Location
+      </Button> 
 
     </Card>
   );
