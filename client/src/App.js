@@ -20,6 +20,7 @@ const FacebookPage = React.lazy(() => import('./pages/FacebookPage.js'));
 const InstagramPage = React.lazy(() => import('./pages/InstragramPage.js'));
 const SponsorPage = React.lazy(() => import('./pages/SponsorPage.js'));
 const DonatePage = React.lazy(() => import('./pages/DonatePage.js'));
+const DuesPage = React.lazy(() => import('./pages/DuesPage.js'));
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -62,6 +63,7 @@ class App extends Component {
                 <Route exact path="/instagram" component={InstagramPage} />
                 <Route exact path="/sponsor-page" component={SponsorPage} />
                 <Route exact path="/donate" component={DonatePage} />
+                <Route exact path="/dues" component={DuesPage} />
                 <Route 
                   exact 
                   path="/login-modal" 

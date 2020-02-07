@@ -1,6 +1,7 @@
 import AuthForm, { STATE_LOGIN } from '../components/AuthForm';
 import Page from '../components/Page';
 import React from 'react';
+import TeamPic from '../assets/img/sidebar/sidebar-14.jpg'
 import {
   Button,
   Card,
@@ -10,6 +11,7 @@ import {
   Modal,
   ModalBody,
   Row,
+  CardImg,
 } from 'reactstrap';
 
 class AuthModalPage extends React.Component {
@@ -47,12 +49,13 @@ class AuthModalPage extends React.Component {
 
     return (
       <Page
-        title="Login Modal"
-        breadcrumbs={[{ name: 'login modal', active: true }]}>
+        title="Admin Login"
+        breadcrumbs={[{ name: 'Admin login', active: true }]}>
         <Row>
-          <Col md="12" sm="12" xs="12">
+          <Col md="6" sm="6" xs="6" md={{ size: 6, offset: 3 }}>
             <Card>
-              <CardHeader>Login Modal Example</CardHeader>
+              <CardImg src={TeamPic} width="100%"/>
+              <CardHeader>If You are an Admin user, please click the button to log-in.</CardHeader>
               <CardBody>
                 <Button color="danger" onClick={this.toggle}>
                   Click to Login

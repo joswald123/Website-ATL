@@ -13,7 +13,7 @@ function InstagramPage() {
        <Page>
            <Row>
                <Col>
-              
+                    <h1>Instagram social-media page / Under construction... </h1>
                </Col>
            </Row>
        </Page>

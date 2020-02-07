@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect }  from 'react';
 import Page from '../components/Page';
 import {
     Card,
@@ -12,6 +12,17 @@ import bg1Image from '../assets/img/team-pics/cover-pic-fb.jpg';
 
 
 function FacebookPage() {
+    
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        const script = document.createElement("script");
+        script.src =
+            "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=759057677908707&autoLogAppEvents=1"
+        script.addEventListener("load", () => setLoaded(true));
+        document.body.appendChild(script);
+
+    });
 
 
     return (

@@ -12,7 +12,8 @@ import {
   // MdTextFields,
   MdPermContactCalendar,
   MdHistory,
-  MdPeople
+  MdPeople,
+  MdPayment
 } from 'react-icons/md';
 import { 
   FaFacebookSquare, 
@@ -45,6 +46,7 @@ const navContents = [
   { to: '/facebook', name: 'FaceBook', exact: true, Icon: FaFacebookSquare },
   { to: '/instagram', name: 'Instagram', exact: true, Icon: FaInstagram },
   { to: '/donate', name: 'Donate', exact: true, Icon: FaDonate },
+  { to: '/dues', name: 'Team Dues', exact: true, Icon: MdPayment },
   { to: '/sponsor-page', name: 'Become a sponsor', exact: true, Icon: FaHandsHelping },
 ];
 

@@ -17,9 +17,9 @@ function TeamPage() {
 
         <Page>
             <Row>
-                <Col md={12} sm={12} xs={12} className="mb-3"><h1>Team</h1></Col>
+                <Col md={12} sm={12} xs={12} className="mb-3"><h1>Team page / Under construction ...</h1></Col>
             </Row>
-            <Row>
+            {/* <Row>
                 <Col md={6} sm={6} xs={12} className="mb-3">
                     <Card className="flex-row">
                         <CardImg
@@ -95,7 +95,7 @@ function TeamPage() {
                     </Card>
                 </Col>
         
-            </Row>
+            </Row> */}
 
         </Page>
         
