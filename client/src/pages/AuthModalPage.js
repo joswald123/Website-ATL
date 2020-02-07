@@ -52,7 +52,7 @@ class AuthModalPage extends React.Component {
         title="Admin Login"
         breadcrumbs={[{ name: 'Admin login', active: true }]}>
         <Row>
-          <Col md="6" sm="6" xs="6" md={{ size: 6, offset: 3 }}>
+          <Col md="6" sm="12" xs="12" md={{ size: 6, offset: 3 }}>
             <Card>
               <CardImg src={TeamPic} width="100%"/>
               <CardHeader>If You are an Admin user, please click the button to log-in.</CardHeader>
