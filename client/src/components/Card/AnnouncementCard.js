@@ -38,7 +38,7 @@ const AnnouncementCard = ({
         header
       )}
       <CardBody className="row d-flex">
-        <Avatar  className="col" size={avatarSize} src={avatar} circle={avatarForm} />
+        <Avatar  className="col" size={avatarSize} src={avatar}  />
         <CardText className="text-justify m-3">{text}</CardText>
         
       </CardBody>

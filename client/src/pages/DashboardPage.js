@@ -40,7 +40,6 @@ class DashboardPage extends Component {
           this.setState({
             events: res.data,
           });
-          console.log(this.state.events)
         } else {
           this.setState({
             noResults: true
@@ -160,7 +159,6 @@ class DashboardPage extends Component {
                     header={event.title}
                     avatar={event.image}
                     avatarSize={300}
-                    avatarForm={0}
                     text={event.description}
                     date={event.date}
                     moreInfo={event.contactInfoEmail}

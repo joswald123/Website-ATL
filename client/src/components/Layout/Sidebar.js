@@ -45,9 +45,7 @@ const sidebarBackground = {
 const navContents = [
   { to: '/facebook', name: 'FaceBook', exact: true, Icon: FaFacebookSquare },
   { to: '/instagram', name: 'Instagram', exact: true, Icon: FaInstagram },
-  { to: '/donate', name: 'Donate', exact: true, Icon: FaDonate },
-  { to: '/dues', name: 'Team Dues', exact: true, Icon: MdPayment },
-  { to: '/sponsor-page', name: 'Become a sponsor', exact: true, Icon: FaHandsHelping },
+
 ];
 
 const pageContents = [
@@ -62,6 +60,9 @@ const navItems = [
   { to: '/history', name: 'about us', exact: true, Icon: MdHistory },
   { to: '/team', name: 'team', exact: true, Icon: MdPeople },
   { to: '/calendar', name: 'calendar', exact: true, Icon: MdPermContactCalendar },  
+  { to: '/donate', name: 'Donate', exact: true, Icon: FaDonate },
+  { to: '/dues', name: 'Team Dues', exact: true, Icon: MdPayment },
+  { to: '/sponsor-page', name: 'Become a sponsor', exact: true, Icon: FaHandsHelping },
 ];
 
 const bem = bn.create('sidebar');

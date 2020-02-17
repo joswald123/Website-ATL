@@ -1,7 +1,11 @@
 import logo200Image from '../assets/img/logo/ATL-logo.PNG';
 import PropTypes from 'prop-types';
-import React from 'react';
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
+
+import { Button, Form, FormGroup, Input, Label, } from 'reactstrap';
+import { AuthContext } from '../Auth';
+import fire from '../config/Fire';
+import React, { useCallback, useContext } from 'react';
+import { withRouter, Redirect } from "react-router";
 
 class AuthForm extends React.Component {
   get isLogin() {
@@ -149,3 +153,6 @@ AuthForm.defaultProps = {
 };
 
 export default AuthForm;
+
+
+

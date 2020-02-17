@@ -1,6 +1,14 @@
 import axios from "axios";
 
+// Instagram URL API
+const BASEURL = "https://api.instagram.com/oembed?url=http://instagr.am/p//";
+const APIKEY = "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=20";
+
 export default {
+
+    search: function(query) {
+        return axios.get(BASEURL + query + APIKEY);
+    },
 
     // Get all Saved Events
     getAllEvents: function() {
@@ -65,4 +73,6 @@ export default {
     updateMatch: function(id) {
         return axios.put("/api/match/" + id);
     }
+
+    
 }
