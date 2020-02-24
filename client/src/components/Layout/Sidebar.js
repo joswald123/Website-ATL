@@ -4,7 +4,6 @@ import React from 'react';
 // import { FaFacebook } from 'react-icons/fa';
 import {
   MdAccountCircle,
-  MdBorderAll,
   MdDashboard,
   MdKeyboardArrowDown,
   MdPages,
@@ -16,8 +15,7 @@ import {
   MdPayment
 } from 'react-icons/md';
 import { 
-  FaFacebookSquare, 
-  FaTwitter, 
+  FaFacebookSquare,  
   FaInstagram, 
   FaDonate, 
   FaNetworkWired,
@@ -49,7 +47,8 @@ const navContents = [
 ];
 
 const pageContents = [
-  { to: '/login', name: 'login / signup', exact: false, Icon: MdAccountCircle },
+  { to: '/login', name: 'login', exact: false, Icon: MdAccountCircle },
+  // { to: '/signUp', name: 'signup', exact: false, Icon: MdAccountCircle },
   { to: '/events', name: 'events', exact: false, Icon: MdEvent },
   { to: '/match', name: 'schedule', exact: false, Icon: MdEvent },
 

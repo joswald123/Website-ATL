@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from '../../utils/propTypes';
-import { Card, CardHeader, CardBody, CardText, Button, Badge, CardFooter } from 'reactstrap';
+import { Card, CardHeader, CardBody, CardText, Button } from 'reactstrap';
 import Avatar from '../../components/Avatar';
 import classNames from 'classnames';
 import Moment from 'react-moment';

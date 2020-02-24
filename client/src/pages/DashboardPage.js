@@ -12,7 +12,7 @@ import {
 // import ReactPlayer from 'react-player';
 import DashboardImag from '../assets/img/sidebar/sidebar-14.jpg';
 import API from '../utils/API';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+
 
 
 
@@ -95,7 +95,7 @@ class DashboardPage extends Component {
         </Row>
 
         <Row>
-          {this.state.matches.map(match => (
+          {this.state.matches && this.state.matches.map(match => (
             
             <Col lg={3} md={6} sm={6} xs={12} key={match._id}>
             <NextMatchesWidget
@@ -151,7 +151,7 @@ class DashboardPage extends Component {
         </Row> */}
         <Row  >
         {
-          this.state.events.map(event => (
+          this.state.events && this.state.events.map(event => (
           
               <Col  md={6} key={event._id} >
                   <AnnouncementCard

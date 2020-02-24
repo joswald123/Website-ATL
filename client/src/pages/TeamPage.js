@@ -1,12 +1,12 @@
 import React from 'react';
-import bg1Image from '../assets/img/bg/background_640-1.jpg';
+// import bg1Image from '../assets/img/bg/background_640-1.jpg';
 import Page from '../components/Page';
 import {
-    Card,
-    CardBody,
-    CardImg,
-    CardText,
-    CardTitle,
+    // Card,
+    // CardBody,
+    // CardImg,
+    // CardText,
+    // CardTitle,
     Col,
     Row,
   } from 'reactstrap';

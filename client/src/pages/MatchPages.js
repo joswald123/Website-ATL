@@ -17,10 +17,10 @@ import {
     Label,
     Row,
     CardFooter,
-    CardTitle
+ 
 } from 'reactstrap';
 import Avatar from '../components/Avatar';
-import { format } from 'timeago.js';
+// import { format } from 'timeago.js';
 import Moment from 'react-moment';
 
 

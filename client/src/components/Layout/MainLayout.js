@@ -14,7 +14,7 @@ class MainLayout extends React.Component {
       .classList.contains('cr-sidebar--open');
   }
 
-  UNSAFE_componentWillReceiveProps({ breakpoint }) {
+  componentWillReceiveProps({ breakpoint }) {
     if (breakpoint !== this.props.breakpoint) {
       this.checkBreakpoint(breakpoint);
     }
@@ -33,7 +33,7 @@ class MainLayout extends React.Component {
         message: 'Welome to Our Page!',
         level: 'info',
       });
-    }, 1500);
+    }, 3000);
 
     setTimeout(() => {
       if (!this.notificationSystem) {

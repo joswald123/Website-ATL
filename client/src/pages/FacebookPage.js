@@ -1,10 +1,8 @@
-import React, { useState, useRef, useEffect, Component } from 'react';
+import React, { useState,  useEffect } from 'react';
 import Page from '../components/Page';
 import {
     Card,
-    CardBody,
     CardHeader,
-    CardImg,
     Col,
     Row,
 } from 'reactstrap';

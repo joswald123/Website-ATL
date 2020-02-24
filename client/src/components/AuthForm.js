@@ -1,19 +1,47 @@
 import logo200Image from '../assets/img/logo/ATL-logo.PNG';
 import PropTypes from 'prop-types';
-
-import { Button, Form, FormGroup, Input, Label, } from 'reactstrap';
-import { AuthContext } from '../Auth';
+import React from 'react';
+import { withRouter } from "react-router"
 import fire from '../config/Fire';
-import React, { useCallback, useContext } from 'react';
-import { withRouter, Redirect } from "react-router";
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
+
+
 
 class AuthForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+
+
+  // handleSubmit = useCallback(async event => {
+  //   event.preventDefault();
+  //   const { email, password } = event.target.elements;
+  //   try {
+  //     await fire
+  //       .auth()
+  //       .createUserWithEmailAndPassword(email.value, password.value);
+  //     this.props.history.push("/");
+
+  //   } catch (error) {
+  //     alert(error)
+  //   }
+   
+  // }, [this.props.history]);
+  
+ 
   get isLogin() {
     return this.props.authState === STATE_LOGIN;
+    
   }
 
   get isSignup() {
     return this.props.authState === STATE_SIGNUP;
+    
   }
 
   changeAuthState = authState => event => {
@@ -22,8 +50,18 @@ class AuthForm extends React.Component {
     this.props.onChangeAuthState(authState);
   };
 
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  }
+
   handleSubmit = event => {
     event.preventDefault();
+    fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=> {
+    }).catch((error)=>{
+      console.log(error)
+    })
   };
 
   renderButtonText() {
@@ -45,6 +83,10 @@ class AuthForm extends React.Component {
       showLogo,
       usernameLabel,
       usernameInputProps,
+      userFirstNameLabel,
+      userLastNameLabel,
+      userFirstNameInputProps,
+      userLastNameInputProps,
       passwordLabel,
       passwordInputProps,
       confirmPasswordLabel,
@@ -52,6 +94,7 @@ class AuthForm extends React.Component {
       children,
       onLogoClick,
     } = this.props;
+
 
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -68,16 +111,22 @@ class AuthForm extends React.Component {
         )}
         <FormGroup>
           <Label for={usernameLabel}>{usernameLabel}</Label>
-          <Input {...usernameInputProps} />
+          <Input {...usernameInputProps} onChange={this.handleChange}/>
         </FormGroup>
         <FormGroup>
           <Label for={passwordLabel}>{passwordLabel}</Label>
-          <Input {...passwordInputProps} />
+          <Input {...passwordInputProps} onChange={this.handleChange} />
         </FormGroup>
         {this.isSignup && (
           <FormGroup>
             <Label for={confirmPasswordLabel}>{confirmPasswordLabel}</Label>
             <Input {...confirmPasswordInputProps} />
+            
+            <Label for={userFirstNameLabel}>{userFirstNameLabel}</Label>
+            <Input {...userFirstNameInputProps} onChange={this.handleChange}/>
+            
+            <Label for={userLastNameLabel}>{userLastNameLabel}</Label>
+            <Input {...userLastNameInputProps} onChange={this.handleChange}/>
           </FormGroup>
         )}
         <FormGroup check>
@@ -119,6 +168,8 @@ class AuthForm extends React.Component {
 export const STATE_LOGIN = 'LOGIN';
 export const STATE_SIGNUP = 'SIGNUP';
 
+
+
 AuthForm.propTypes = {
   authState: PropTypes.oneOf([STATE_LOGIN, STATE_SIGNUP]).isRequired,
   showLogo: PropTypes.bool,
@@ -138,21 +189,34 @@ AuthForm.defaultProps = {
   usernameInputProps: {
     type: 'email',
     placeholder: 'your@email.com',
+    id: 'email',
+
+  },
+  userFirstNameLabel: 'First Name',
+  userFirstNameInputProps: {
+    type: 'name',
+    placeholder: 'your first-name',
+    id: 'firstName'
+  },
+  userLastNameLabel: 'Last Name',
+  userLastNameInputProps: {
+    type: 'text',
+    placeholder: 'your last-name',
+    id: 'lastName'
   },
   passwordLabel: 'Password',
   passwordInputProps: {
     type: 'password',
     placeholder: 'your password',
+    id: 'password',
   },
   confirmPasswordLabel: 'Confirm Password',
   confirmPasswordInputProps: {
     type: 'password',
     placeholder: 'confirm your password',
+    id: 'password'
   },
   onLogoClick: () => {},
 };
 
-export default AuthForm;
-
-
-
+export default withRouter(AuthForm);
