@@ -38,7 +38,7 @@ export const chartjs = {
       datasets: [
         {
           label: 'My First dataset',
-          borderColor: getColor('secondary'),
+          borderColor: getColor('primary'),
           backgroundColor: getColor('secondary'),
           data: [0, 13, 22, 34, 46, 35, 30],
           fill: 'origin',

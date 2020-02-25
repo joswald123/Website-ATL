@@ -12,19 +12,20 @@
 // $cyan: #00bcd4;
 // $white: #fff;
 $theme-colors: (
-  "primary": #e0ca02,
-  "secondary": #c00026,
-  "success": #e6e205,
+  "primary": #835a02,
+  "secondary": #dd5d07,
+  "success": #c53902,
   "danger": #ff0000,
   "warning": #ff6600,
-  "info": #2b2b2b
+  "info": #2b2b2b,
+  "base1":  #e7e7e7,
 );
 
 $enable-gradients: true;
 
 // card
 //
-$card-cap-bg: #fff;
+$card-cap-bg: rgb(177, 171, 171);
 
 
 // sidebar

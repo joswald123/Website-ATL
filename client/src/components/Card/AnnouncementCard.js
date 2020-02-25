@@ -67,7 +67,7 @@ AnnouncementCard.propTypes = {
 };
 
 AnnouncementCard.defaultProps = {
-  color: 'gradient-secondary',
+  color: 'gradient-primary',
   avatarSize: 60,
 };
 

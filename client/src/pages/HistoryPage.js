@@ -18,7 +18,8 @@ function HistoryPage() {
                 <Card>
                     <CardImg top src={bg11Image} />
                         <CardBody>
-                            <CardTitle><h1>Atlanta Renegades Rugby Football Club</h1></CardTitle>
+                        <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}> 
+                            <CardTitle><h1>Atlanta Renegades Rugby Football Club History</h1></CardTitle>
                             <CardText>
                                 
                                     The Atlanta Renegades Rugby Football Club was founded in 1971 by a small group of athletes dedicated 
@@ -27,13 +28,16 @@ function HistoryPage() {
                                     to WORK HARD, PLAY WELL and HAVE FUN.
                                 
                             </CardText>
-
+                            
+                            </Card>
+                            <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
                             <CardText>    
                                     Since then rugby has grown to have multiple layers of competition in the U.S. True to the traditions 
                                     laid down in the beginning - Renegade sides have earned a respected place in the history of Southern 
                                     and American rugby.
                             </CardText>
-
+                            </Card>
+                            <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
                             <CardText> 
                                 
                                     In 1973, ARRFC hosted the first Peachtree Invitational Rugby Tournament - one of the first ever rugby 
@@ -42,28 +46,31 @@ function HistoryPage() {
                                     To this day, members of those teams gather to travel to play in Saranac as the "Saragades" in over-45 
                                     divisional play. Also in 1977, the club formed its original charter.
                             </CardText>
-                            
+                            </Card>
+                            <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
                             <CardText>   
                                     On the field, the club has a long list of successes. The Renegades have been involved in territorial 
                                     playoffs since 1980, through the existence of the old Eastern Rugby Union and now in USA Rugby South. 
                                     Tournaments won include the Peachtree Invitational, St. Louis Ruggerfest, Gator Invitational, Savannah St. 
                                     Patrick's Day Tournament, Charleston Michelob Rugby Classic, the Dogwood Invitational and others.
                             </CardText>
-                            
+                            </Card>
+                            <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
                             <CardText> 
                                     The ARRFC has toured Wales, Scotland, Ireland, England, The Bahamas, The Cayman Islands, and the U.S. 
                                     West Coast. Touring sides to visit the Renegades include teams from Wales, Ireland, Zambia, South Africa, 
                                     Argentina, England, Bermuda, The Bahamas and The Cayman Islands.
                             </CardText>
-
+                            </Card>
+                            <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
                             <CardText> 
                                     The club membership rolls have included players from not only all corners of the U.S., but also Italy, 
                                     Fiji, England, Wales, Ireland, Australia, New Zealand, South Africa, Western Samoa, Uruguay, Scotland, 
                                     France, Kenya, and Tonga. That cultural diversity is an aspect of this club that is considered particularly 
                                     unique.
                             </CardText>
-                               
-
+                            </Card>  
+                            <Card body inverse color="warning">
                             <CardSubtitle className={"mt-5"}><h2>Practice/Field Location</h2></CardSubtitle> 
                                 
                             <CardText> 
@@ -71,6 +78,7 @@ function HistoryPage() {
                                     New players as well as experienced ones are always welcome to come out and join. Practice starts 
                                     at 7:30 PM on Tuesdays and Thursdays.
                             </CardText>
+                            </Card> 
                         </CardBody>
                 </Card>
             </Col>

@@ -17,12 +17,12 @@ const UserCard = ({
   className,
   ...restProps
 }) => {
-  const classes = classNames('bg-gradient-theme', className);
+  const classes = classNames('bg-gradient-theme', className); 
 
   return (
     <Card inverse className={classes} {...restProps}>
       <CardBody className="d-flex justify-content-center align-items-center flex-column">
-        <Avatar src={avatar} size={avatarSize} className="mb-2" />
+        <Avatar src={avatar} size={avatarSize} className="mb-4" />
         <CardTitle>{title}</CardTitle>
         <CardSubtitle>{subtitle}</CardSubtitle>
         <CardText>

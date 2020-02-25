@@ -4,7 +4,7 @@
     align-items: center;
 
     &.active {
-      color: #fff;
+      color: rgb(180, 80, 80);
       background: rgba(255, 255, 255, .23);
       opacity: 1;
     }
@@ -17,6 +17,7 @@
 
 .card-header {
   text-transform: uppercase;
+  text-align: center;
 }
 
 .badge:empty {

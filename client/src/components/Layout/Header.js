@@ -73,7 +73,7 @@ class Header extends React.Component {
         </Nav>
         <Nav navbar>
           <h4 style={{color: 'white'}}>
-            ATLANTA RENEGADES RUGBY FOOTBALL CLUB
+            ATLANTA RENEGADES
           </h4>
         </Nav>
 

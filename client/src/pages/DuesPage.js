@@ -73,7 +73,7 @@ function DuesPage() {
                         <Card>
                             <CardImg top width="100%" src={duesPic} alt="Card image cap"/>  
                             <CardBody>
-                                <CardText><h2>Congrats, You just donated to support this cause</h2></CardText>
+                                <CardText><h2>Congrats, You just donated to support this team!</h2></CardText>
                                 <CardImg src={thanks} />
                             </CardBody>
                         </Card>

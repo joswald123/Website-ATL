@@ -115,10 +115,10 @@
       // @include media-breakpoint-down(md) {
       //   padding: .5rem;
       // }
-      color: theme-color(light);
+      color: theme-color(base1);
 
       &:hover {
-        background: rgba(theme-color(light), 0.15);
+        background: rgba(theme-color(info), 0.15);
       }
     }
   }

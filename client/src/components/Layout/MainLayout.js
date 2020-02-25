@@ -77,7 +77,7 @@ class MainLayout extends React.Component {
   }
 
   openSidebar(openOrClose) {
-    if (openOrClose === 'open') {
+    if (openOrClose === 'close') {
       return document
         .querySelector('.cr-sidebar')
         .classList.add('cr-sidebar--open');
@@ -88,7 +88,7 @@ class MainLayout extends React.Component {
   render() {
     const { children } = this.props;
     return (
-      <main className="cr-app bg-light">
+      <main className="cr-app bg-dark">
         <Sidebar />
         <Content fluid onClick={this.handleContentClick}>
           <Header />
