@@ -1,106 +1,90 @@
-import React from 'react';
-// import bg1Image from '../assets/img/bg/background_640-1.jpg';
+import React, { Component } from 'react';
 import Page from '../components/Page';
+import API from '../utils/API';
+import Typography from '../components/Typography';
 import {
-    // Card,
-    // CardBody,
-    // CardImg,
-    // CardText,
-    // CardTitle,
     Col,
     Row,
-  } from 'reactstrap';
+    Card,
+    CardBody,
+    CardImg,
+    CardSubtitle,
+    CardTitle,  
+   
+} from 'reactstrap';
 
-function TeamPage() {
 
-    return(
+export default class TeamPage extends Component {
 
-        <Page>
-            <Row>
-                <Col md={12} sm={12} xs={12} className="mb-3"><h1>Team page / Under construction ...</h1></Col>
-            </Row>
-            {/* <Row>
-                <Col md={6} sm={6} xs={12} className="mb-3">
-                    <Card className="flex-row">
-                        <CardImg
-                            className="card-img-left"
-                            src={bg1Image}
-                            style={{ width: 'auto', height: 150 }}
-                        />
-                        <CardBody>
-                            <CardTitle>Horizontal Image Card(Left)</CardTitle>
-                            <CardText>
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                            </CardText>
-                        </CardBody>
-                
-                    </Card>
-                </Col>
+    state = {
 
-                <Col md={6} sm={6} xs={12} className="mb-3">
-                    <Card className="flex-row">
-                        <CardImg
-                            className="card-img-left"
-                            src={bg1Image}
-                            style={{ width: 'auto', height: 150 }}
-                        />
-                        <CardBody>
-                            <CardTitle>Horizontal Image Card(Left)</CardTitle>
-                            <CardText>
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                            </CardText>
-                        </CardBody>
-                
-                    </Card>
-                </Col>
-        
-            </Row>
+        TeamMembers: [],
+        noResults: false,
 
-            <Row>
-                <Col md={6} sm={6} xs={12} className="mb-3">
-                    <Card className="flex-row">
-                        <CardImg
-                            className="card-img-left"
-                            src={bg1Image}
-                            style={{ width: 'auto', height: 150 }}
-                        />
-                        <CardBody>
-                            <CardTitle>Horizontal Image Card(Left)</CardTitle>
-                            <CardText>
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                            </CardText>
-                        </CardBody>
-                
-                    </Card>
-                </Col>
+    }
 
-                <Col md={6} sm={6} xs={12} className="mb-3">
-                    <Card className="flex-row">
-                        <CardImg
-                            className="card-img-left"
-                            src={bg1Image}
-                            style={{ width: 'auto', height: 150 }}
-                        />
-                        <CardBody>
-                            <CardTitle>Horizontal Image Card(Left)</CardTitle>
-                            <CardText>
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                            </CardText>
-                        </CardBody>
-                
-                    </Card>
-                </Col>
-        
-            </Row> */}
+    componentDidMount() {
+        this.getSavedTeamMember();
+    }
 
-        </Page>
-        
-    )
-    
+
+    getSavedTeamMember = () => {
+        API.getAllTeamMembers()
+            .then(res => {
+                if (res.data.length > 0) {
+                    this.setState({
+                        TeamMembers: res.data,
+                    });
+                } else {
+                    this.setState({
+                        noResults: true
+                    });
+                }
+            })
+            .catch(err => console.log(err));
+    }
+
+
+
+    render() {
+        return (
+
+            <Page>
+
+                <Row>
+                    <Col lg="12" md="12" sm="12" xs="12">
+                        <h1>Roster</h1>
+                    </Col>
+                </Row>
+
+                <Row >
+                    {this.state.TeamMembers.map(team => (
+
+                        <Col lg={3} md={6} sm={6} xs={12} key={team._id}>
+
+                            <Card>
+                                <CardImg  src={team.picture} style={{ width: "100%", height: 250 }} alt="Card image cap" />
+                                <CardBody>
+                                <CardTitle><h3>{team.name}</h3></CardTitle>
+                                    <CardSubtitle>{team.position}</CardSubtitle>
+                                    <Typography className="mb-0 d-flex justify-content-end">
+                                            <h3>{team.numberPosition}</h3>   
+                                    </Typography>
+                                </CardBody>
+                            </Card>
+
+                        </Col>
+
+                    ))}
+                </Row>
+            </Page>
+
+        )
+
+    }
 }
 
-export default TeamPage;
+
+
+
+

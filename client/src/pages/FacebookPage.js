@@ -36,22 +36,20 @@ import {
                     </Col>
                 </Row>
                 <Row>
-                    <Col sm="12" md={{ size: 5, offset: 3 }}   >
-                        <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
-                            <Card body className="flex-row">
+                    <Col sm="12" md={{ size: 5, offset: 4 }}   >
+                        
                                 <div 
                                     className="fb-page"
                                     data-tabs="timeline,events,messages"
                                     data-href="https://www.facebook.com/Atlantarugby/"
-                                    data-width="180px"
+                                    data-width="500px"
                                     data-height="800px"
                                     data-hide-cover="false"
                                     data-show-facepile="true"
                                     data-adapt-container-width="true"
                                 ></div>
     
-                            </Card >
-                        </Card>
+                            
                     </Col>
     
                 </Row>

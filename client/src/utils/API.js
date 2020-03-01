@@ -1,14 +1,7 @@
 import axios from "axios";
 
-// Instagram URL API
-const BASEURL = "https://api.instagram.com/oembed?url=http://instagr.am/p//";
-const APIKEY = "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=20";
 
 export default {
-
-    search: function(query) {
-        return axios.get(BASEURL + query + APIKEY);
-    },
 
     // Get all Saved Events
     getAllEvents: function() {
@@ -18,20 +11,27 @@ export default {
     getAllMatches:function () {
         return axios.get("/api/match")
     },
+    // Get all Saved TeamMembers
+    getAllTeamMembers: function() {
+        return axios.get("/api/team")
+    },
+
     
     // Add new Events
     addEvent: function(addEvent) {
-        return axios.post("/api/events", addEvent)
-        
+        return axios.post("/api/events", addEvent)      
     },
     // Add new Matches
     addMatch: function(addMatch) {
         return axios.post("/api/match", addMatch)
     },
+    // Add new TeamMembers
+    addTeamMember: function(addTeamMember) {
+        return axios.post("/api/team", addTeamMember)
+    },
 
 
 
-    
     // Get Events by Id
     getEvent: function(id) {
         return axios.get("/api/events" + id);
@@ -39,6 +39,10 @@ export default {
     // Get Matches by id
     getMatch: function(id) {
         return axios.get("/api/match" + id);
+    },
+    // Get TeamMembers by id
+    getTeamMember: function(id) {
+        return axios.get("/api/team" + id);
     },
 
 
@@ -51,6 +55,10 @@ export default {
     saveMatch: function(saveMatch) {
         return axios.post("/api/match", saveMatch);
     },
+    // Save a TeamMember to the database 
+    saveNewTeamMember: function(saveNewTeamMember) {
+        return axios.post("/api/team", saveNewTeamMember);
+    },
 
 
 
@@ -62,6 +70,10 @@ export default {
     deleteMatch: function(id) {
         return axios.delete("/api/match/" + id);
     },
+    // Delete a Team Member with the given id
+    deleteTeamMember: function(id) {
+        return axios.delete("api/team/" + id);
+    },
 
 
     
@@ -72,6 +84,10 @@ export default {
     //Update a Match
     updateMatch: function(id) {
         return axios.put("/api/match/" + id);
+    },
+    //Update a Team Member profile
+    updateTeamMember:function(id){
+        return axios.put("api/team/" + id)
     }
 
     

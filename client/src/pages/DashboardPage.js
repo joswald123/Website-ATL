@@ -8,6 +8,7 @@ import {
   // Button,
   Col,
   Row,
+  CardHeader,
 } from 'reactstrap';
 // import ReactPlayer from 'react-player';
 import DashboardImag from '../assets/img/sidebar/sidebar-14.jpg';
@@ -93,6 +94,12 @@ class DashboardPage extends Component {
           </Col>
 
         </Row>
+          
+        <Row>
+           <Col lg={12} md={12} sm={12} xs={12}>
+             <CardHeader><h2>Next Matches</h2></CardHeader>
+            </Col>
+        </Row>
 
         <Row>
           {this.state.matches && this.state.matches.map(match => (
@@ -114,42 +121,16 @@ class DashboardPage extends Component {
 
           ))}
           
-          {/* <Col lg={3} md={6} sm={6} xs={12}>
-            <NextMatchesWidget
-              title="Next Match"
-              location="Atlanta"
-              date="00/00/000"
-              localtime="00:00"
-              avatar={user1Image}
-              avatarSize1="15"
-              subtitle1="Name team"
-              avatar2={user2Image}
-              avatarSize2="15"
-              subtitle2="Name team"
-
-            />
-          </Col> */}
+      
         </Row>
 
-        {/* <Row>
-          <Col lg={12} md={12} sm={12} xs={12}>
-            <Link to="/calendar">
-              <Button
-                icon={MdThumbUp}
-                color="info"
-                outline active
-                size="lg"
-                block
-                className="mt-5 mb-5"
+        <Row>
+           <Col lg={12} md={12} sm={12} xs={12}>
+             <CardHeader><h2>Follow up our next events!</h2></CardHeader>
+            </Col>
+        </Row>
 
-              >
-                Full Calendar Events
-            </Button>
-            </Link>
-
-          </Col>
-        </Row> */}
-        <Row  >
+        <Row>
         {
           this.state.events && this.state.events.map(event => (
           

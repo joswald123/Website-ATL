@@ -17,6 +17,7 @@ const AuthModalPage = React.lazy(() => import('./pages/AuthModalPage'));
 // const SignUp = React.lazy(() => import('./pages/SignUp'));
 const EventsPage = React.lazy(() => import('./pages/EventsPage.js'));
 const MatchPage = React.lazy(() => import('./pages/MatchPages.js'));
+const TeamPageAdmin = React.lazy(() => import('./pages/TeamPageAdmin.js'));
 const DashboardPage = React.lazy(() => import('./pages/DashboardPage'));
 const CalendarPage = React.lazy(() => import('./pages/CalendarPage.js'));
 const HistoryPage = React.lazy(() => import('./pages/HistoryPage.js'));
@@ -89,6 +90,7 @@ class App extends Component {
                     component={AuthModalPage} />
                   <Route exact path="/events" component={EventsPage} />
                   <Route exact path="/match" component={MatchPage} />
+                  <Route exact path="/teamAdmin" component={TeamPageAdmin} />
                 </React.Suspense>
               </MainLayout>
               <Redirect to="/" />

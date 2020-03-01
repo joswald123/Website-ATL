@@ -51,6 +51,7 @@ const pageContents = [
   // { to: '/signUp', name: 'signup', exact: false, Icon: MdAccountCircle },
   { to: '/events', name: 'events', exact: false, Icon: MdEvent },
   { to: '/match', name: 'schedule', exact: false, Icon: MdEvent },
+  { to: '/teamAdmin', name: 'team-admin', exact: false, Icon: MdPeople },
 
 ];
 
