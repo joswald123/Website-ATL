@@ -181,10 +181,10 @@ export default class TeamPageAdmin extends Component {
                             <Card>
                                 <CardImg  src={team.picture} style={{ width: "100%", height: 450 }} alt="Card image cap" />
                                 <CardBody>
-                                <CardTitle><h3>{team.name}</h3></CardTitle>
+                                <CardTitle><h2>{team.name}</h2></CardTitle>
                                     <CardSubtitle>{team.position}</CardSubtitle>
                                     <Typography className="mb-0 d-flex justify-content-end">
-                                            <h3>{team.numberPosition}</h3>   
+                                            <strong>{team.numberPosition}</strong>   
                                     </Typography>
                                 </CardBody>
                                 <CardFooter className="d-flex flex-end">

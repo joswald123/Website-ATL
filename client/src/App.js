@@ -1,20 +1,19 @@
-import { STATE_LOGIN, STATE_SIGNUP } from './components/AuthForm';
+// import { STATE_LOGIN, STATE_SIGNUP } from './components/AuthForm';
 
 import { EmptyLayout, LayoutRoute, MainLayout } from './components/Layout';
 import PageSpinner from './components/PageSpinner';
-import AuthPage from './pages/AuthModalPage';
+// import AuthPage from './pages/AuthModalPage';
 import React, { Component } from 'react';
 import componentQueries from 'react-component-queries';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { AuthProvider } from "./Auth"
-// import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 
 import './styles/reduction.scss';
 
-
-const AuthModalPage = React.lazy(() => import('./pages/AuthModalPage'));
-// const Login = React.lazy(() => import('./pages/Login'));
-// const SignUp = React.lazy(() => import('./pages/SignUp'));
+const Login = React.lazy(() => import('./pages/Login.js'));
+const SignUp = React.lazy(() => import('./pages/SignUp.js'));
+// const AuthModalPage = React.lazy(() => import('./pages/AuthModalPage'));
 const EventsPage = React.lazy(() => import('./pages/EventsPage.js'));
 const MatchPage = React.lazy(() => import('./pages/MatchPages.js'));
 const TeamPageAdmin = React.lazy(() => import('./pages/TeamPageAdmin.js'));
@@ -28,9 +27,9 @@ const SponsorPage = React.lazy(() => import('./pages/SponsorPage.js'));
 const DonatePage = React.lazy(() => import('./pages/DonatePage.js'));
 const DuesPage = React.lazy(() => import('./pages/DuesPage.js'));
 
-// const getBasename = () => {
-//   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
-// };
+const getBasename = () => {
+  return `/${process.env.PUBLIC_URL.split('/').pop()}`;
+};
 
 class App extends Component {
   state = {
@@ -50,10 +49,9 @@ class App extends Component {
         
         <BrowserRouter>
           <Switch>
-              <LayoutRoute
+              {/* <LayoutRoute
                 exact
                 path="/login"
-                // render = {(props) => <Login updatedUser = {this.updatedUser} /> }
                 layout={EmptyLayout}
                 component={props => (
                   <AuthPage {...props} authState={STATE_LOGIN} />
@@ -62,12 +60,11 @@ class App extends Component {
               <LayoutRoute
                 exact
                 path="/signup"
-                // render={(props) => <SignUp updatedUser = {this.updatedUser} />}
                 layout={EmptyLayout}
                 component={props => (
                   <AuthPage {...props} authState={STATE_SIGNUP} />
                 )}
-              />
+              /> */}
 
               <MainLayout breakpoint={this.props.breakpoint}>
                 <React.Suspense fallback={<PageSpinner />}>
@@ -84,13 +81,16 @@ class App extends Component {
                   <Route exact path="/sponsor-page" component={SponsorPage} />
                   <Route exact path="/donate" component={DonatePage} />
                   <Route exact path="/dues" component={DuesPage} />
-                  <Route
+                  {/* <Route
                     exact
                     path="/login-modal"
-                    component={AuthModalPage} />
-                  <Route exact path="/events" component={EventsPage} />
-                  <Route exact path="/match" component={MatchPage} />
-                  <Route exact path="/teamAdmin" component={TeamPageAdmin} />
+                    component={AuthModalPage} /> */}
+
+                  <Route exact path="/login" render = {(props) => <Login updatedUser = {this.updatedUser} /> }/>
+                  <Route exact path="/signup" render={(props) => <SignUp updatedUser = {this.updatedUser} />}/>
+                  <PrivateRoute exact path="/events" component={EventsPage} />
+                  <PrivateRoute exact path="/match" component={MatchPage} />
+                  <PrivateRoute exact path="/teamAdmin" component={TeamPageAdmin} />
                 </React.Suspense>
               </MainLayout>
               <Redirect to="/" />

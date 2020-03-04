@@ -19,6 +19,7 @@ import {
             "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=759057677908707&autoLogAppEvents=1"
         script.addEventListener("load", () => setLoaded(true));
         document.body.appendChild(script);
+        
 
         console.log(script)
 
@@ -42,7 +43,7 @@ import {
                                     className="fb-page"
                                     data-tabs="timeline,events,messages"
                                     data-href="https://www.facebook.com/Atlantarugby/"
-                                    data-width="500px"
+                                    data-width="350px"
                                     data-height="800px"
                                     data-hide-cover="false"
                                     data-show-facepile="true"

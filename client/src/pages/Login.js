@@ -1,8 +1,10 @@
 import React, { useCallback, useContext } from 'react';
 import { withRouter, Redirect } from "react-router"
+import Page from '../components/Page';
 import fire from '../config/Fire';
 import { AuthContext } from '../Auth';
-import { Col, Row } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Label, Col, Row, Card } from 'reactstrap';
+import logo200Image from '../assets/img/logo/ATL-logo.PNG';
 
 
 
@@ -15,10 +17,10 @@ const Login = (props) => {
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
                 .then(function () {
-                let currentUser = fire.auth().currentUser;
-                // console.log(currentUser.displayName); 
-                props.updatedUser(currentUser.displayName)
-                props.history.push("/");
+                    let currentUser = fire.auth().currentUser;
+                    // console.log(currentUser.displayName); 
+                    props.updatedUser(currentUser.displayName)
+                    props.history.push("/");
                 });
         } catch (error) {
             alert(error);
@@ -34,50 +36,60 @@ const Login = (props) => {
         return <Redirect to="/" />;
     }
 
-        return (
+    return (
 
-            <div>
-            <br></br>
-            <br></br>
-
-            <Row>
-                <Col size="md-2"></Col>
-                <Col size="md-8">
-
+        <Page>
+            <Row className="mt-5 mb-5">
                 
-                        <div className="signupForm mt-5">
-                            <form onSubmit={handleLogin}>
-                                <h1>Log In</h1>
-                                <hr></hr>
+                <Col sm="12" md={{ size: 7, offset: 3 }} className="mt-5 mb-5">
+                    <Card >
+                    <Form onSubmit={handleLogin} className="m-5">
+                      
+                      <div className="text-center pb-4">
+                      <img
+                          src={logo200Image}
+                          className="rounded"
+                          style={{ width: 100, height: 70, cursor: 'pointer' }}
+                          alt="logo"
+                          onClick={()=>{}}
+                      
+                      />
+                      </div>
+            
 
-                                <label>
-                                    Email
-                                        <input type="email" name="email" placeholder="" />
-                                </label>
-                                <hr></hr>
-                                <label>
-                                    Password
-                                        <input type="password" name="password" placeholder="" />
-                                </label>
-                                <hr></hr>
-                                <button type="login" style={{ marginTop: '25px', marginLeft: '10px' }} className="btn btn-success">Login</button>
-                                <button type="" style={{ marginTop: '25px', marginLeft: '10px' }} 
-                                className="btn btn-success" >Sign Up</button>
+                  
+                  <FormGroup>
+                      <Label for="email" sm={2}>
+                          Email
+                  </Label>
+                      <Input
+                          type="email"
+                          name="email"
+                          placeholder="Type your email"
+                      />
+                  </FormGroup>
+                  <FormGroup>
+                      <Label for="password" sm={2}>
+                          Password
+                  </Label>
+                      <Input
+                          type="password"
+                          name="password"
+                          placeholder="Type your password"
+                      />
+                  </FormGroup>
+                  <Button type="login" style={{ marginTop: '25px', marginLeft: '10px' }} className="btn btn-success">Login</Button>
+                  </Form>
 
-                            </form>
-                        </div>
-
-                   
-
+                    </Card>
+                    
                 </Col>
-
-                <Col size="md-2"></Col>
             </Row>
+        </Page>
 
-        </div >
 
-        );
+    );
+        
+    }
     
-}
-
-export default withRouter (Login);
+    export default withRouter (Login);

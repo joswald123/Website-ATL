@@ -1,11 +1,13 @@
 import React, { useCallback, useContext } from 'react';
 import { withRouter, Redirect } from "react-router"
 import fire from '../config/Fire';
-import { Col, Row } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Label, Col, Row, Card } from 'reactstrap';
 import { AuthContext } from '../Auth';
+import Page from '../components/Page';
+import logo200Image from '../assets/img/logo/ATL-logo.PNG';
 
 
-const Signup = ( props ) => {
+const Signup = (props) => {
     const handleSignUp = useCallback(async event => {
         event.preventDefault();
         const { firstname, lastname, email, password } = event.target.elements;
@@ -20,7 +22,7 @@ const Signup = ( props ) => {
                         displayName: username
                     }).then(function () {
                         let currentUser = fire.auth().currentUser;
-                        console.log(currentUser.displayName); 
+                        console.log(currentUser.displayName);
                         // Update successful.
                         props.updatedUser(currentUser.displayName)
                         props.history.push("/");
@@ -38,61 +40,77 @@ const Signup = ( props ) => {
     const { currentUser } = useContext(AuthContext);
 
     if (currentUser) {
-        
+
         return <Redirect to="/" />;
     }
 
     return (
 
-        <div>
-            <br></br>
-            <br></br>
+        <Page>
+            <Row className="mt-5 mb-5">
 
-            <Row>
-                <Col size="md-2"></Col>
-                <Col size="md-8">
+                <Col sm="12" md={{ size: 9, offset: 2 }} className="mt-5 mb-5">
+                    <Card >
+                        <Form onSubmit={handleSignUp} className="m-5">
 
-                    <div className="signupForm mt-5">
-                        <form onSubmit={handleSignUp}>
+                            <div className="text-center pb-4">
+                                <img
+                                    src={logo200Image}
+                                    className="rounded"
+                                    style={{ width: 100, height: 70, cursor: 'pointer' }}
+                                    alt="logo"
+                                    onClick={() => { }}
 
-                            <h1>New User?</h1>
-                            <p> * Get a FREE account in less than 2 minutes</p>
-                            <p> * Access a personalized that allows to upload your projects or be a backer on a great idea!</p>
-                            <h1>Join Now!</h1>
+                                />
+                            </div>
+                            <FormGroup>
+                                <Label for="firstName" sm={2}>
+                                    First Name
+                                </Label>
+                                <Input
+                                    type="name"
+                                    name="firstname"
+                                    placeholder="Type your Name"
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for="lastName" sm={2}>
+                                    Last Name
+                                </Label>
+                                <Input
+                                    type="lastName"
+                                    name="lastname"
+                                    placeholder="Type your Last Name"
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for="email" sm={2}>
+                                    Email
+                                </Label>
+                                <Input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Type your email"
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for="password" sm={2}>
+                                    Password
+                                </Label>
+                                <Input
+                                    type="password"
+                                    name="password"
+                                    placeholder="Type your password"
+                                />
+                            </FormGroup>
+                            <Button type="login" style={{ marginTop: '25px', marginLeft: '10px' }} className="btn btn-success">Signup</Button>
+                        </Form>
 
-                            <label>
-                                First Name
-                                        <input type="firstname" name="firstname" placeholder="" />
-                            </label>
-                            <hr></hr>
-                            <label>
-                                Last Name
-                                        <input type="lastname" name="lastname" placeholder="" />
-                            </label>
-                            <hr></hr>
-                            <label>
-                                Email
-                                        <input type="email" name="email" placeholder="" />
-                            </label>
-                            <hr></hr>
-                            <label>
-                                Password
-                                        <input type="password" name="password" placeholder="" />
-                            </label>
-                            <hr></hr>
-                            <button type="submit" style={{ marginTop: '25px', marginLeft: '10px' }} className="btn btn-success">Signup</button>
-
-                        </form>
-                    </div>
-
-
+                    </Card>
 
                 </Col>
-
-                <Col size="md-2"></Col>
             </Row>
-
-        </div >
+        </Page>
 
 
 
