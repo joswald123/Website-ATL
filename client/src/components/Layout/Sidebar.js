@@ -28,7 +28,7 @@ import {
   Nav,
   // Navbar,
   NavItem,
-  NavLink as BSNavLink,
+  NavLink as BSNavLink, Button
 } from 'reactstrap';
 import bn from '../../utils/bemnames';
 import fire from '../../config/Fire';
@@ -199,7 +199,7 @@ class Sidebar extends React.Component {
                   </BSNavLink>
                 </NavItem>
               ))}
-              <button className="logoutbtn" onClick={() => fire.auth().signOut()}>Sign Out</button>
+              <Button className="logoutbtn" onClick={() => fire.auth().signOut()}>Sign Out</Button>
             </Collapse>
 
           </Nav>
