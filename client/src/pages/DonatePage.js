@@ -56,6 +56,7 @@ function DonatePage() {
                             setPaidFor(true);
 
                             console.log(order);
+                            alert(`Tu donacion fue procesada correctamente!`)
                         },
                     })
                     .render(paypalRef);

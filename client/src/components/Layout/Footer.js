@@ -12,7 +12,7 @@ class Footer extends Component {
 
   render(){
 
-    const { copyright = "&copy; 2019 Atlanta Renegades Rugby Football Club"} = this.props;
+    const { copyright = "&copy; 2020 Atlanta Renegades Rugby Football Club"} = this.props;
 
     return(
       <Navbar>
