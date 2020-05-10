@@ -105,15 +105,15 @@ class App extends Component {
 
 const query = ({ width }) => {
   if (width < 575) {
-    return { breakpoint: 'xs' };
+    return { breakpoint: 'lg' };
   }
 
   if (576 < width && width < 767) {
-    return { breakpoint: 'sm' };
+    return { breakpoint: 'lg' };
   }
 
   if (768 < width && width < 991) {
-    return { breakpoint: 'md' };
+    return { breakpoint: 'lg' };
   }
 
   if (992 < width && width < 1199) {

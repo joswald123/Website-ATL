@@ -1,106 +1,103 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import Page from '../components/Page';
-import duesPic from '../assets/img/products/product_640-1.jpg';
-import thanks from '../assets/img/products/thankyou-pic.PNG';
-import {
-    Card,
-    CardBody,
-    CardHeader,
-    CardImg,
-    CardText,
-    Col,
-    Row,
-} from 'reactstrap';
 
+// import {
+//     Card,
+//     CardBody,
+//     CardHeader,
+//     CardImg,
+//     CardText,
+//     Col,
+//     Row,
+// } from 'reactstrap';
+
+import PaypalCheckoutButton from '../components/PaypalCheckoutButton.js';
+import { Button, Row, Col, Card, CardHeader, CardBody } from 'reactstrap';
 
 
 function DuesPage() {
+    const order = {
+        customer: '123456',
+        total: '50.00',
+        items: [
+            {
+                sku: '112',
+                name: 'Donation',
+                price: '50.00',
+                quantity: 1,
+                currency: 'USD'
+            },
+           
+        ]
 
-    const [paidFor, setPaidFor] = useState(false);
-    const [loaded, setLoaded] = useState(false);
-
-    let paypalRef = useRef();
-
-    const product = {
-        price: 200.00,
-        description: "Make a payment for your dues",
-        image: "../assets/img/products/thankyou-pic.PNG"
+        // customer: '123456',
+        // total: '550.00',
+        // items: [
+        //     {
+        //         sku: '112',
+        //         name: 'uniformes',
+        //         price: '300.00',
+        //         quantity: 1,
+        //         currency: 'USD'
+        //     },
+        //     {
+        //         sku: '99',
+        //         name: 'Camiseta',
+        //         price: '125.00',
+        //         quantity: 2,
+        //         currency: 'USD'
+        //     }
+        // ]
     };
-    useEffect(() => {
-        const script = document.createElement("script");
-        script.src =
-            "https://www.paypal.com/sdk/js?client-id=AcFx8E4ubOjOdlZGaxDVS0DX4IC38V-HDRPWFVWx6eEATLD54XksSUlufzQ8tStiZLfsPhr5aK4S__6C"
-        script.addEventListener("load", () => setLoaded(true));
-        document.body.appendChild(script);
-
-        if (loaded) {
-            setTimeout(() => {
-                window.paypal
-                    .Buttons({
-                        createOrder: (data, actions) => {
-                            return actions.order.create({
-                                purchase_units: [
-                                    {
-                                        description: product.description,
-                                        amount: {
-                                            currency_code: "USD",
-                                            value: product.price
-                                        }
-                                    }
-                                ]
-                            });
-                        },
-                        onApprove: async (data, actions) => {
-                            const order = await actions.order.capture();
-
-                            setPaidFor(true);
-
-                            console.log(order);
-                        },
-                    })
-                    .render(paypalRef);
-            });
-        }
-    });
 
     return (
         <Page>
-
-            {paidFor ? (
-
-                <Row>
-                    <Col lg={12} md={12} sm={12} xs={12}>
-                        <Card>
-                            <CardImg top width="100%" src={duesPic} alt="Card image cap"/>  
-                            <CardBody>
-                                <CardText><h2>Congrats, You just donated to support this team!</h2></CardText>
-                                <CardImg src={thanks} />
-                            </CardBody>
-                        </Card>
-                        
+            <Card>
+            <Row>
+                    <Col lg={12} md={12} xs={12}>
+                        <CardHeader>
+                        <h1>Due page</h1>
+                        <h5>Pay your bills here.</h5>
+                        </CardHeader>
                     </Col>
-                </Row>
-            ) : (
+            </Row>
+            <CardBody>
+            <Row>
+                <Col lg={6} md={6} xs={12}>
+                <h2>$50.00 UDS</h2>
+                <PaypalCheckoutButton 
+                    order={order}
+                />
+                </Col>
+                <Col lg={6} md={6} xs={12}>
+                <h2>$100.00 UDS</h2>
+                <PaypalCheckoutButton 
+                    order={order}
+                />
+                </Col>
+                
+                
+            </Row>
+            <Row>
+                <Col lg={6} md={6} xs={12}>
+                <h2>$150.00 UDS</h2>
+                <PaypalCheckoutButton 
+                order={order}
+                />
+                </Col>
+                <Col lg={6} md={6} xs={12}>
+                <h2>$200.00 UDS</h2>
+                <PaypalCheckoutButton 
+                order={order}
+                />
+                </Col>
+            </Row>
 
-                <Card>
-                    <Row>
-                        <Col lg={12} md={12} sm={12} xs={12}>
-                           
-                                <CardHeader>
-                                    <h5>{product.description} for ${product.price}</h5>
-                                </CardHeader>
-                                <CardImg src={duesPic} width="200" height="400"/>
-                        </Col>
-                        <Col  sm="12" xm="12" md={{ size: 6, offset: 3 }}>
-                                <CardBody>
-                                    <div ref={v => (paypalRef = v)} />
-                                </CardBody>
+            </CardBody>
+            
 
-                        </Col>
-
-                    </Row>
-                </Card>    
-                )}
+            </Card>      
+           
         </Page >
     )
 
