@@ -1,6 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "homepage": "http://atlantarenegades.club/",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -33,7 +34,6 @@
   "bugs": {
     "url": "https://github.com/joswald123/ATL-RENEGADES-WEBSITE"
   },
-  "homepage": "https://github.com/joswald123/ATL-RENEGADES-WEBSITE/",
   "dependencies": {
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
