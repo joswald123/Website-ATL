@@ -1,6 +1,6 @@
 # Sport team website
 
-This is a website for a rugby football team in Atlanta. Created it with React and reduction Tools.
+This is a dummy website for a rugby football team in Atlanta. Created it with React and reduction Tools.
 
 ![Home Page Screen](/client/src/assets/img/readme/Capture1.PNG)
 
